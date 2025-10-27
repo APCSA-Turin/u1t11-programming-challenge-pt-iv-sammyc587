@@ -10,10 +10,14 @@ public class StringProblems{
     // endsLy("oddy") → false
     public boolean endsLy(String x){
             //implement code here
-
+        int len = x.length();
+        String last = x.substring(len-2);
+        if (last.equals("ly")){
+        return true;        
+        }else{
         return false;
     }
-
+    }
 
     // Given two strings, append them together (known as "concatenation") 
     // and return the result. However, if the concatenation creates a double-char, 
@@ -22,10 +26,15 @@ public class StringProblems{
     // conCat("dog", "cat") → "dogcat"
     // conCat("abc", "") → "abc"
     public String conCat(String s1, String s2){
-     
-        return "";
+        int len1 = s1.length();
+        String last1 = s1.substring(len1 - 1);
+        String last2 = s2.substring(0,1);
+        if (last1.equals(last2)){
+            return (s1.substring(0, len1-1)) + s2;
+        }else{
+        return s1 + s2;
     }
-
+    }
     // Given a string, return a version without the first 2 chars. 
     // Except keep the first char if it is 'a' and keep the second char if it is 'b'. 
     // The string may be any length. Harder than it looks.
@@ -38,8 +47,19 @@ public class StringProblems{
     //deFront("a") -> "a"
     //deFront("ba") -> ""
     public String deFront(String s1){
-           
-        return "";
+           String a = s1.substring(0,1);
+           String b = s1.substring(0, 2);
+           if (a.equals("a") && b.equals("b")){
+            return s1;
+           }
+           if (a.equals("a") && !b.equals("b")){
+            String newStr = a + s1.substring(2);
+            return newStr;
+           }
+           if (!a.equals("a") && b.equals("b"))
+           String newStr = s1.substring(1);
+           return newStr;
+       return "";
     }
 
     
