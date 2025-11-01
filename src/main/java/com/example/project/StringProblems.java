@@ -9,8 +9,10 @@ public class StringProblems{
     // endsLy("y") → false
     // endsLy("oddy") → false
     public boolean endsLy(String x){
-            //implement code here
         int len = x.length();
+        if (len<2){
+            return false;
+        }
         String last = x.substring(len-2);
         if (last.equals("ly")){
         return true;        
@@ -27,6 +29,9 @@ public class StringProblems{
     // conCat("abc", "") → "abc"
     public String conCat(String s1, String s2){
         int len1 = s1.length();
+        if (len1 ==0 || s2.length() == 0){
+            return s1 + s2;
+        }
         String last1 = s1.substring(len1 - 1);
         String last2 = s2.substring(0,1);
         if (last1.equals(last2)){
@@ -48,7 +53,7 @@ public class StringProblems{
     //deFront("ba") -> ""
     public String deFront(String s1){
            String a = s1.substring(0,1);
-           String b = s1.substring(0, 2);
+           String b = s1.substring(1, 2);
            if (a.equals("a") && b.equals("b")){
             return s1;
            }
@@ -131,13 +136,13 @@ public class StringProblems{
     // fizzString2(3) → "Fizz!
     public String fizzString2(int x){
     if (x%3==0 && x%5==0){
-        return "FizzBuzz";
+        return "FizzBuzz!";
     }
     if (x%3!=0 && x%5==0){
-        return "Buzz";
+        return "Buzz!";
     }
     if (x%3==0 && x%5!=0){
-        return "Fizz";
+        return "Fizz!";
     }
     if (x%3!=0 && x%5!=0){
         return x +"!";
