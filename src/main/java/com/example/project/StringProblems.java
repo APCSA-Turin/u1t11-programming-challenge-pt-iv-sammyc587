@@ -56,12 +56,15 @@ public class StringProblems{
             String newStr = a + s1.substring(2);
             return newStr;
            }
-           if (!a.equals("a") && b.equals("b"))
+           if (!a.equals("a") && b.equals("b")){
            String newStr = s1.substring(1);
            return newStr;
-       return "";
+           }else if (!a.equals("a") && !b.equals("b")) {
+            String newStr = s1.substring(2);
+            return newStr;
+           }
+           return "";
     }
-
     
     // Given a string, if the first or last chars are 'x', 
     // return the string without those 'x' chars, and otherwise 
@@ -71,6 +74,24 @@ public class StringProblems{
     // withoutX("Hxix") → "Hxi"
     // withoutX("") → ""
     public String withoutX(String s1){
+        int len = s1.length() - 1 ;
+        String first = s1.substring(0,1);
+        String last = s1.substring(len);
+        if (first.equals("x") && last.equals("x")){
+            String newStr = s1.substring(1, len);
+            return newStr;
+        }
+        if (first.equals("x") && !last.equals("x")){
+            String newStr = s1.substring(1,len + 1);
+            return newStr;
+        }
+        if (!first.equals("x") && last.equals("x")){
+            String newStr = s1.substring(0,len);
+            return newStr;
+        }
+        if (!first.equals("x") && !last.equals("x")){
+            return s1;
+        }
         return "";
     }
 
@@ -82,6 +103,20 @@ public class StringProblems{
     // fizzString("dib") → "Buzz"
     // fizzString("fib") → "FizzBuzz"
     public String fizzString(String s1){
+        int len = s1.length()-1;
+        String first = s1.substring(0, 1);
+        String last = s1.substring(len);
+        if (first.equals("f") && last.equals("b")){
+            return "FizzBuzz";
+        }
+        if (first.equals("f") && !last.equals("b")){
+            return "Fizz";
+        }
+        if (!first.equals("f") && last.equals("b")){
+            return "Buzz";
+        }
+        if (!first.equals("f") && !last.equals("b"))
+        return s1;
         return "";
     }
 
@@ -93,8 +128,20 @@ public class StringProblems{
     //   What will the remainder be when one number divides evenly into another? 
     // fizzString2(1) → "1!"
     // fizzString2(2) → "2!"
-    // fizzString2(3) → "Fizz!"
+    // fizzString2(3) → "Fizz!
     public String fizzString2(int x){
+    if (x%3==0 && x%5==0){
+        return "FizzBuzz";
+    }
+    if (x%3!=0 && x%5==0){
+        return "Buzz";
+    }
+    if (x%3==0 && x%5!=0){
+        return "Fizz";
+    }
+    if (x%3!=0 && x%5!=0){
+        return x +"!";
+    }
         return "";
     }
 }
